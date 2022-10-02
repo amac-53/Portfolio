@@ -1,0 +1,176 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<!-- about -->
+<h1 class="mb-0 text-center">ABOUT</h1>
+<p class="mt-0 mb-5 text-center">_____________________</p>
+
+<!-- profile -->
+<h3 class="mt-5 mb-3 text-center">PROFILE</h3>
+<div class="row justify-content-center">
+    <div class="mb-4">
+        <img class="rounded-circle" src="{{ profile_data.subimage.url }}" alt="">
+    </div>
+</div>
+
+<!-- icons -->
+<div class="row d-flex justify-content-center mb-3">
+    {% if profile_data.twitter %}
+        <a href="{{ profile_data.twitter }}" target="_blank" class="mx-3">
+            <i class="bi bi-twitter" style="font-size: 2rem; color: black;"></i>
+        </a>
+    {% endif %}
+    {% if profile_data.instagram %}
+        <a href="{{ profile_data.instagram }}" target="_blank" class="mx-3">
+            <i class="bi bi-instagram"></i>
+        </a>
+    {% endif %}
+    {% if profile_data.github %}
+        <a href="{{ profile_data.github }}" target="_blank" class="mx-3">
+            <i class="bi bi-github"></i>
+        </a>
+    {% endif %}
+    {% if profile_data.linkedin %}
+        <a href="{{ profile_data.linkedin }}" target="_blank" class="mx-3">
+            <i class="bi bi-link-45deg"></i>
+        </a>
+    {% endif %}
+</div>
+
+<!-- introduction -->
+<div class="row justify-content-center">
+    <div class="card text-center px-5 py-4 col-md-8">
+        <div class="col">
+            <p>{{ profile_data.introduction|linebreaksbr }}</p>
+        </div>
+    </div>        
+</div>
+
+
+<!-- Timeline -->
+<h3 class="mt-5 mb-3 text-center">BACKGROUND</h3>
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 card py-4">
+<div class="row justify-content-center">
+        {% for education in education_data %}
+            <div class="timeline-item col-7">
+                <h5 class="fw-bold">{{ education.school }} {{ education.course }}</h5>
+                <p class="text-muted mb-2 fw-bold">{{ education.period }}</p>
+                <p class="text-muted">
+                    {{ education.description }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+<!-- 資格等 -->
+<h3 class="mt-5 mb-3 text-center">CERTIFICATION</h3>
+<div class="row justify-content-center">
+    <div class="card col-md-8 text-center py-4">
+        TOEIC 835 (2021年6月取得)
+    </div>
+</div>
+
+<!-- ソフトウェアスキル -->
+<h3 class="my-5 text-center">SOFTWARE SKILLS</h3>
+<div class="row justify-content-center">
+    <div class="col-1"></div>
+    <div class="row row-cols-2">
+        {% for software in software_data %}
+        <div class="col">
+            <div class="card skill">
+            <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ software.image.url }}" alt="" height="100" width="100">
+                <h5 class="mb-0">{{ software.name }}<span class="small.secondary"> - {{ software.level }}</span></h5>
+                <div class="d-flex flex-row">
+                    <div class="star-rating">
+                        <div class="star-rating-front" style="width: {{ software.percentage }}%">★★★★★</div>
+                        <div class="star-rating-back">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                {{ software.description }}
+            </div>
+            </div>
+            </div>
+        </div>   
+        {% endfor %}
+    </div>
+    <div class="col-1"></div>
+</div>
+
+
+<!-- プログラミングスキル -->
+<h3 class="my-5 text-center">PROGRAMMING SKILLS</h3>
+<div class="row justify-content-center">
+    <div class="col-1"></div>
+        <div class="row row-cols-2">
+        {% for technical in technical_data %}
+        <div class="col">
+            <div class="card mb-3" style="height: 250px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{ technical.image.url }}" alt="" height="100" width="100">
+                        <h5 class="mb-0">{{ technical.name }}<span class="small.secondary"> - {{ technical.level }}</span></h5>
+                        <div class="d-flex flex-row">
+                            <div class="star-rating">
+                                <div class="star-rating-front" style="width: {{ technical.percentage }}%">★★★★★</div>
+                                <div class="star-rating-back">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                    {{ technical.description }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    <div class="col-1"></div>
+</div>
+
+<!-- 技術ブログ -->
+<h3 class="mt-5 mb-3 text-center">TECHNICAL BLOGS</h3>
+<div class="mt-5 mb-5 row justify-content-center">
+    <div class="row row-cols-2">
+        <div class="col">
+            <div class="card">
+                <h5>理解して覚えるpythonシリーズ</h5>
+                <ul>
+                    <li>
+                        <a href="https://zenn.dev/ama_c/articles/43bd4171a9855d">理解して覚えるpython ~import編~</a>
+                    </li>
+                    <li>
+                        <a href="https://zenn.dev/ama_c/articles/c5523044aa0868">理解して覚えるpython ~デコレータ編~</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <h5>機械学習理論シリーズ</h5>
+                <ul>
+                    <li>
+                        <a href="https://zenn.dev/ama_c/articles/11a53b9f5aecdf">SVMをはじめから丁寧に</a>
+                    </li>
+                    <li>
+                        <a href="https://zenn.dev/ama_c/articles/2dc5b9e4fdab15">直感で理解するCAMとGrad-CAM</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 論文関連やけど大した経歴ないしなくてもいいかも -->
+<!-- <h3 class="my-4 text-center">Papers</h3> -->
+{% endblock%}
+

@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+{% load  widget_tweaks %}
+{% block content %}
+
+<h1 class="mb-0 text-center">CONTACT</h1>
+<p class="mt-0 mb-5 text-center">_____________________</p>
+
+<div class="card text-center contact mx-auto rounded mb-5">
+    <div class="card-body">
+        <form action="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                {% render_field form.name class="form-control" placeholder="名前" %}
+            </div>
+            <div class="mb-3">
+                {% render_field form.email class="form-control" placeholder="あなたのメールアドレス" %}
+            </div>
+            <div class="mb-3">
+                {% render_field form.message class="form-control" placeholder="メッセージ" %}
+            </div>
+                <button class="btn btn-dark" type="submit"><i class="fas fa-paper-plane"></i>送信する</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

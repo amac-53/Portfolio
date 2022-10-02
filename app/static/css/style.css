@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #e9e1d1;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+
+.navbar-nav {
+    flex-direction: row!important;
+}
+
+.nav-color {
+    color: #333333;
+}
+
+.nav-color:hover {
+    color: rgb(74, 47, 19);
+}
+
+.nav-color:after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: rgb(74, 47, 19);;
+    margin-top: 6px;
+    opacity: 0;
+    transform: translate(12px);
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-color:hover:after {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.row .card {
+    position: relative;
+    padding: 2rem;
+}
+
+.img {
+    object-fit: contain;
+    height: 500px;
+}
+
+.overlay {
+    position: absolute;
+    color: #e9e1d1;
+    top: 5%;
+    left: 5%;
+}
+
+.title {
+    font-size: 4rem;
+}
+
+
+/* about page */
+.bi {
+    font-size: 3rem;
+    color: black;
+}
+
+.work-thumbnail {
+    overflow: hidden;
+    position: relative;
+}
+
+.work-img {
+    object-fit: cover;
+    height: 240px;
+}
+
+.work-title {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    font-weight: bold;
+    padding: 0;
+    opacity: 0;
+    background-color: rgb(238, 108, 77, 0.8);
+    transform: translateY(70px);
+    transition: all 0.2s ease-in-out;
+}
+
+.work-thumbnail:hover .work-title {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.link-color {
+    color: rgb(74, 47, 19);;
+}
+
+.link-color:hover {
+    color: #C56C55;
+    text-decoration: none;
+}
+
+.rounded-circle {
+    width: 300px;
+    height: 300px;
+}
+
+.icon {
+    padding: 10px 8px;
+}
+
+.star-rating {
+    position: relative;
+    font-size: 30px;
+    word-wrap: normal!important;
+}
+
+.star-rating-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: #EE6C4D;
+}
+
+.star-rating-back {
+    color: #ccc;
+}
+
+.contact {
+    max-width: 500px;
+}
+
+.form-control:focus {
+    border-color: #EE6C4D;
+    box-shadow: none;
+}
+
+.timeline-item {
+    padding: 1em 2em 0em;
+    position: relative;
+    color: rgba(black, .7);
+    border-left: 2px solid black;
+}  
+
+.timeline-item p {
+    font-size: 1rem;
+}
+
+.timeline-item::after {
+    width: 20px;
+    height: 20px;
+    display: block;
+    top: 1em;
+    position: absolute;
+    left: -11px;
+    border-radius: 10px;
+    content: '';
+    border: 3px solid black;
+    background: black;
+}
+
